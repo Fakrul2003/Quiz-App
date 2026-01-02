@@ -1,0 +1,64 @@
+/* ভিডিওগুলোর মেইন কন্টেইনার (প্যারেন্ট) */
+.Videos {
+  display: grid;
+  /* প্রতিটি ভিডিও কার্ড অন্তত ৩০০ পিক্সেল হবে এবং বাকি জায়গা সমানভাবে ভাগ করে নেবে */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px; /* ভিডিওগুলোর মাঝখানের দূরত্ব */
+  padding: 20px 0;
+  width: 100%;
+}
+
+/* একক ভিডিও কার্ডের স্টাইল */
+.video {
+  background-color: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  text-decoration: none; /* আ্যঙ্কর ট্যাগের নিচের দাগ সরানোর জন্য */
+  display: block;
+}
+
+/* মাউস নিলে কার্ডটি সামান্য উপরে উঠবে এবং শ্যাডো আসবে */
+.video:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* থাম্বনেইল ইমেজের স্টাইল */
+.video img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9; /* ভিডিও থাম্বনেইল রেশিও ঠিক রাখবে */
+  object-fit: cover;
+  display: block;
+}
+
+/* ভিডিওর টাইটেল/টেক্সট */
+.video p {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin: 12px 10px;
+  /* টেক্সট ৩ লাইনের বেশি হলে ডট ডট (...) দেখাবে */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.4;
+}
+
+/* প্রশ্ন এবং স্কোরের মেটা ডেটা */
+.qmeta {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px 15px 10px;
+}
+
+.qmeta p {
+  font-size: 14px;
+  font-weight: 400;
+  color: #666;
+  margin: 0;
+}
